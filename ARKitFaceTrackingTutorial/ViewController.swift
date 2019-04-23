@@ -7,14 +7,30 @@
 //
 
 import UIKit
+import ARKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var sceneView: ARSCNView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        guard ARFaceTrackingConfiguration.isSupported else {
+            fatalError("Face tracking is not supported on this device")
+        }
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let configuration = ARFaceTrackingConfiguration()
+        sceneView.session.run(configuration)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        sceneView.session.pause()
+    }
 }
 
