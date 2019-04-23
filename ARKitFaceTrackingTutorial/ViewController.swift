@@ -9,6 +9,10 @@
 import UIKit
 import ARKit
 
+private let planeWidth: CGFloat = 0.13
+private let planeHeight: CGFloat = 0.06
+private let nodeYPosition: Float = 0.022
+
 class ViewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
     
@@ -44,7 +48,18 @@ extension ViewController: ARSCNViewDelegate {
         
         let faceGeometry = ARSCNFaceGeometry(device: device)
         let faceNode = SCNNode(geometry: faceGeometry)
-        faceNode.geometry?.firstMaterial?.fillMode = .lines
+        faceNode.geometry?.firstMaterial?.transparency = 0
+        
+        let glassesPlane = SCNPlane(width: planeWidth, height: planeHeight)
+        glassesPlane.firstMaterial?.isDoubleSided = true
+        glassesPlane.firstMaterial?.diffuse.contents = UIImage(named: "glasses")
+        
+        let glassesNode = SCNNode()
+        glassesNode.position.z = faceNode.boundingBox.max.z * 3 / 4
+        glassesNode.position.y = nodeYPosition
+        glassesNode.geometry = glassesPlane
+
+        faceNode.addChildNode(glassesNode)
         
         return faceNode
     }
