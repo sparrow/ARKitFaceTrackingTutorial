@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var calibrationBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionButton: UIButton!
     @IBOutlet weak var calibrationButton: UIButton!
+    @IBOutlet weak var alertLabel: UILabel!
     
     private let glassesPlane = SCNPlane(width: planeWidth, height: planeHeight)
     private let glassesNode = SCNNode()
@@ -50,7 +51,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         guard ARFaceTrackingConfiguration.isSupported else {
-            fatalError("Face tracking is not supported on this device")
+            alertLabel.text = "Face tracking is not supported on this device"
+            
+            return
         }
         
         sceneView.delegate = self

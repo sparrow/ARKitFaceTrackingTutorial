@@ -248,6 +248,12 @@
                                     <constraint firstAttribute="bottom" secondItem="MJM-a1-b87" secondAttribute="bottom" constant="20" id="zGh-Vt-EdN"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybT-HH-oeA">
+                                <rect key="frame" x="207" y="448" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.98431372549999996" green="0.63650773979999997" blue="0.37203921870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -255,7 +261,10 @@
                             <constraint firstItem="gQy-DQ-71Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A6o-AQ-jUg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gQy-DQ-71Q" secondAttribute="trailing" id="F1R-2n-hcj"/>
                             <constraint firstItem="Plt-tn-TMt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Gby-jA-Pwy"/>
+                            <constraint firstItem="ybT-HH-oeA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gq9-hH-uNG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ybT-HH-oeA" secondAttribute="trailing" constant="50" id="HJb-53-ina"/>
                             <constraint firstItem="kUV-9Z-CVr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="HdQ-18-h51"/>
+                            <constraint firstItem="ybT-HH-oeA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MDQ-69-etY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Xr-Ky-u5G" secondAttribute="trailing" id="b9L-ht-q5b"/>
                             <constraint firstAttribute="bottom" secondItem="gQy-DQ-71Q" secondAttribute="bottom" constant="-150" id="bDZ-7K-QUb"/>
                             <constraint firstItem="1Xr-Ky-u5G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cdg-kH-Y1I"/>
@@ -265,10 +274,12 @@
                             <constraint firstItem="Plt-tn-TMt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qX4-px-k8V"/>
                             <constraint firstItem="gQy-DQ-71Q" firstAttribute="top" secondItem="kUV-9Z-CVr" secondAttribute="bottom" constant="10" id="xqX-e4-Vio"/>
                             <constraint firstItem="1Xr-Ky-u5G" firstAttribute="top" secondItem="IDL-sP-4sG" secondAttribute="bottom" constant="10" id="z1x-Py-zO9"/>
+                            <constraint firstItem="ybT-HH-oeA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="zxK-G3-7qB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="alertLabel" destination="ybT-HH-oeA" id="rVC-oj-OEX"/>
                         <outlet property="calibrationBottomConstraint" destination="eav-q6-9Y6" id="KIm-O5-yg4"/>
                         <outlet property="calibrationButton" destination="IDL-sP-4sG" id="X4y-kW-Sc4"/>
                         <outlet property="calibrationTransparentView" destination="DEr-L7-gXR" id="Seh-l7-mht"/>
